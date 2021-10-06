@@ -35,5 +35,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnCalcular2 = findViewById(R.id.btnCalcular2) ;
+        btnCalcular2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double numero   = Double.parseDouble( entrada.getText().toString() ) ;
+                salida.setText( numero + " ^ 2 = " );
+                Intent servicio = new Intent( view.getContext() , IntentServicioOperacion.class ) ;
+                servicio.putExtra("numero", numero ) ;
+                startService( servicio ) ;
+            }
+        });
+
+
     }
 }
